@@ -1,0 +1,176 @@
+aid: kamal-deploy
+name: Kamal
+description: >-
+  Kamal is an open-source deployment tool from 37signals (DHH / Basecamp) for
+  deploying containerized web applications to any infrastructure — bare metal,
+  cloud VMs, or a mix — with zero-downtime rolling restarts. Originally built
+  for Rails apps, Kamal works with any web application that can be packaged as
+  a Docker container. It uses SSHKit to drive remote commands over SSH and
+  pairs with kamal-proxy, a lightweight HTTP proxy written in Go that
+  seamlessly switches request traffic between old and new containers during a
+  deploy. Kamal is imperative and Capistrano-like in feel, with a single
+  `config/deploy.yml` describing servers, image, registry, accessories, env,
+  secrets, and proxy/SSL settings. Capabilities include auto-provisioning
+  Docker on new servers, remote builds, asset bridging, accessory services
+  (databases, Redis, cron sidecars), automatic TLS via Let's Encrypt, host-
+  and path-based routing, and hooks for custom pre/post-deploy logic. Kamal is
+  the operational backbone of 37signals' on-premises exit from major cloud
+  providers and powers their ONCE product line. Kamal itself is a CLI tool,
+  not a hosted service — there is no public REST API, no SDK, and no paid
+  tier. The project is released under the MIT License and developed openly on
+  GitHub under the `basecamp` organization.
+type: Index
+position: Producer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Deployment
+  - DevOps
+  - Docker
+  - Containers
+  - Zero Downtime
+  - Rolling Deploys
+  - Rails
+  - Ruby
+  - Open Source
+  - 37signals
+  - Basecamp
+  - On Premises
+  - Infrastructure
+  - CLI
+  - SSH
+url: https://raw.githubusercontent.com/api-evangelist/kamal-deploy/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: kamal-deploy:kamal
+    name: Kamal CLI
+    description: >-
+      The Kamal CLI (`kamal`) is the primary command-line interface for
+      packaging, shipping, and operating containerized web apps across one or
+      more SSH-reachable servers. It reads `config/deploy.yml` (plus
+      environment-specific overlays and encrypted secrets) and orchestrates
+      the full lifecycle: building images, pushing to a registry, provisioning
+      Docker on target hosts, starting accessory services, deploying the app
+      via kamal-proxy with health-check gated traffic switching, and tailing
+      logs or rolling back to a prior version. Command groups include `app`,
+      `accessory`, `build`, `proxy`, `registry`, `secrets`, `server`, and
+      `prune`, plus top-level shortcuts like `deploy`, `redeploy`, `rollback`,
+      `setup`, `audit`, `details`, `env`, `lock`, `version`, and `init`.
+    humanURL: https://kamal-deploy.org/docs/
+    tags:
+      - CLI
+      - Deployment
+      - Docker
+      - Rails
+      - Ruby
+      - SSH
+    properties:
+      - type: Documentation
+        url: https://kamal-deploy.org/docs/
+      - type: GettingStarted
+        url: https://kamal-deploy.org/docs/installation/
+      - type: Source
+        url: https://github.com/basecamp/kamal
+      - type: GitHubRepository
+        url: https://github.com/basecamp/kamal
+      - type: License
+        url: https://github.com/basecamp/kamal/blob/main/MIT-LICENSE
+      - type: ReleaseNotes
+        url: https://github.com/basecamp/kamal/releases
+      - type: Configuration
+        url: https://kamal-deploy.org/docs/configuration/
+        title: deploy.yml Configuration Reference
+      - type: Hooks
+        url: https://kamal-deploy.org/docs/hooks/
+      - type: Upgrade
+        url: https://kamal-deploy.org/docs/upgrading/
+      - type: SDK
+        url: https://rubygems.org/gems/kamal
+        title: kamal (RubyGem)
+  - aid: kamal-deploy:kamal-proxy
+    name: Kamal Proxy
+    description: >-
+      Kamal Proxy is a minimal HTTP reverse proxy written in Go that powers
+      the zero-downtime deploy switchover behind Kamal. It exposes a small
+      `kamal-proxy` CLI with `run`, `deploy`, and `remove` commands; the
+      Kamal CLI talks to it over SSH to register new container instances
+      (`hostname:port`), runs health checks (default `GET /up` once per second
+      returning `200`), drains traffic from old instances, and atomically
+      switches new traffic to the healthy instance. The proxy supports
+      host-based routing (multiple apps on one server), path-based routing
+      with optional prefix stripping, custom health-check paths/ports/timeouts,
+      automatic TLS via Let's Encrypt, and custom TLS certificate/key files
+      (useful for Cloudflare origin certs or private CAs). It can also be run
+      standalone outside of Kamal.
+    humanURL: https://github.com/basecamp/kamal-proxy
+    tags:
+      - Proxy
+      - HTTP
+      - Load Balancing
+      - Zero Downtime
+      - TLS
+      - Go
+    properties:
+      - type: Documentation
+        url: https://github.com/basecamp/kamal-proxy/blob/main/README.md
+      - type: Source
+        url: https://github.com/basecamp/kamal-proxy
+      - type: GitHubRepository
+        url: https://github.com/basecamp/kamal-proxy
+      - type: License
+        url: https://github.com/basecamp/kamal-proxy/blob/main/MIT-LICENSE
+      - type: Dockerfile
+        url: https://github.com/basecamp/kamal-proxy/blob/main/Dockerfile
+common:
+  - type: Website
+    url: https://kamal-deploy.org
+  - type: Documentation
+    url: https://kamal-deploy.org/docs/
+  - type: GettingStarted
+    url: https://kamal-deploy.org/docs/installation/
+  - type: Source
+    url: https://github.com/basecamp/kamal
+  - type: GitHubRepository
+    url: https://github.com/basecamp/kamal
+  - type: GitHubOrganization
+    url: https://github.com/basecamp
+  - type: License
+    url: https://github.com/basecamp/kamal/blob/main/MIT-LICENSE
+    title: MIT License
+  - type: ReleaseNotes
+    url: https://github.com/basecamp/kamal/releases
+  - type: ChangeLog
+    url: https://github.com/basecamp/kamal/releases
+  - type: Community
+    url: https://github.com/basecamp/kamal/discussions
+    title: GitHub Discussions
+  - type: Community
+    url: https://discord.gg/YgHVT7GCXS
+    title: Discord
+  - type: Contributing
+    url: https://github.com/basecamp/kamal/blob/main/CONTRIBUTING.md
+  - type: CodeOfConduct
+    url: https://github.com/basecamp/kamal/blob/main/CODE_OF_CONDUCT.md
+  - type: SDK
+    url: https://rubygems.org/gems/kamal
+    title: kamal (RubyGem)
+  - type: CLI
+    url: https://kamal-deploy.org/docs/commands/
+    title: kamal CLI
+  - type: Integrations
+    url: https://github.com/basecamp/kamal-proxy
+    title: kamal-proxy (Go)
+  - type: Integrations
+    url: https://github.com/basecamp/kamal-skiff
+    title: kamal-skiff — static sites on nginx + SSI via Kamal
+  - type: Integrations
+    url: https://github.com/basecamp/kamal-site
+    title: kamal-site — source for kamal-deploy.org
+  - type: UseCases
+    url: https://once.com
+    title: 37signals ONCE — single-tenant self-hosted apps deployed via Kamal
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

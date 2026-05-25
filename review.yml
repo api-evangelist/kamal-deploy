@@ -1,0 +1,75 @@
+aid: kamal-deploy
+name: Kamal
+reviewer: Kin Lane
+reviewed: '2026-05-25'
+type: opensource
+tier: 2
+summary: >-
+  Kamal is 37signals' (DHH/Basecamp) open-source zero-downtime deployer for
+  containerized web apps. It is a Ruby CLI that drives Docker over SSH using
+  SSHKit, paired with kamal-proxy — a small Go HTTP proxy — to atomically
+  switch traffic between old and new containers based on health checks.
+  Configuration is a single `config/deploy.yml` covering servers, image,
+  registry, accessories, env, secrets, and proxy/TLS. There is no hosted
+  service, no REST API, no SDK surface beyond the RubyGem, and no commercial
+  tier — Kamal is the deployment backbone behind 37signals' on-prem exit and
+  their ONCE product line.
+findings:
+  - area: APIs
+    note: >-
+      No public REST or HTTP API. The product surface is the `kamal` Ruby CLI
+      and the `kamal-proxy` Go CLI. Catalog as Tier-2 (CLI, not REST API).
+  - area: Specs
+    note: >-
+      No OpenAPI, AsyncAPI, JSON Schema, or other machine-readable contract
+      published by the project. Do not generate placeholder specs — per
+      run-pipeline.md, empty spec files are forbidden.
+  - area: Open Source
+    note: >-
+      MIT License. Two primary repos under github.com/basecamp — `kamal`
+      (Ruby, ~14k stars, latest v2.11.0) and `kamal-proxy` (Go, ~1k stars).
+      Companion repos `kamal-site` (docs) and `kamal-skiff` (static sites via
+      Kamal) are useful integrations.
+  - area: Packaging
+    note: >-
+      Distributed as the `kamal` RubyGem (`gem install kamal`). A Dockerfile
+      is also published for running Kamal itself in a container when Ruby is
+      unavailable on the workstation.
+  - area: Governance
+    note: >-
+      Vendored by 37signals; primary maintainer is DHH. Development happens
+      openly on GitHub with public Discussions and a community Discord.
+  - area: Commercial
+    note: >-
+      Pure FOSS, no hosted tier. Plans/RateLimits/FinOps pipeline steps are
+      not applicable.
+pipeline:
+  ran:
+    - update-apis
+  skipped:
+    - profile-github-org (basecamp org is broad; covered the two Kamal repos directly in apis.yml)
+    - discover-crds (no Kubernetes CRDs — Kamal targets bare metal / VMs over SSH, not k8s)
+    - update-artifacts (no OpenAPI/AsyncAPI/JSON-Schema published)
+    - generate-operation-examples (no specs)
+    - title-case-summaries (no specs)
+    - generate-spectral-rules (no specs)
+    - generate-naftiko-capabilities (no specs)
+    - generate-json-schema (no resources)
+    - generate-json-structure (no schemas)
+    - generate-json-ld (deferred — CLI-shaped product)
+    - generate-examples (no schemas)
+    - generate-vocabulary (deferred)
+    - generate-plans (FOSS, no commercial pricing)
+    - generate-rate-limits (no API)
+    - generate-finops (no commercial offering)
+references:
+  - https://kamal-deploy.org
+  - https://kamal-deploy.org/docs/
+  - https://github.com/basecamp/kamal
+  - https://github.com/basecamp/kamal-proxy
+  - https://github.com/basecamp/kamal-site
+  - https://github.com/basecamp/kamal-skiff
+  - https://rubygems.org/gems/kamal
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
