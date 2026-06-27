@@ -86,7 +86,7 @@ apis:
         url: https://kamal-deploy.org/docs/hooks/
       - type: Upgrade
         url: https://kamal-deploy.org/docs/upgrading/
-      - type: SDK
+      - type: SDKs
         url: https://rubygems.org/gems/kamal
         title: kamal (RubyGem)
   - aid: kamal-deploy:kamal-proxy
@@ -153,7 +153,7 @@ common:
     url: https://github.com/basecamp/kamal/blob/main/CONTRIBUTING.md
   - type: CodeOfConduct
     url: https://github.com/basecamp/kamal/blob/main/CODE_OF_CONDUCT.md
-  - type: SDK
+  - type: SDKs
     url: https://rubygems.org/gems/kamal
     title: kamal (RubyGem)
   - type: CLI
