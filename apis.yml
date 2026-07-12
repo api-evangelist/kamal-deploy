@@ -124,6 +124,8 @@ apis:
       - type: Dockerfile
         url: https://github.com/basecamp/kamal-proxy/blob/main/Dockerfile
 common:
+  - type: DomainSecurity
+    url: security/kamal-deploy-domain-security.yml
   - type: Website
     url: https://kamal-deploy.org
   - type: Documentation
