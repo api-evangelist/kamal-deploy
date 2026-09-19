@@ -52,7 +52,7 @@ tags:
   - Containers
   - Zero Downtime
   - Rolling Deploys
-  - Rails
+  - Rail
   - Ruby
   - Open-Source
   - 37signals
@@ -98,6 +98,13 @@ apis:
       `setup`, `audit`, `details`, `env`, `lock`, `version`, and `init`.
     humanURL: https://kamal-deploy.org/docs/
     tags:
+      - CLI
+      - Deployment
+      - Docker
+      - Rail
+      - Ruby
+      - SSH
+    tags_raw:
       - CLI
       - Deployment
       - Docker
