@@ -21,15 +21,20 @@ description: >-
   GitHub under the `basecamp` organization.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: self-hosted
+  license: MIT
+  license_evidence:
+    repo: basecamp/kamal
+    spdx: MIT
+    stars: 14604
+  open_source: true
   commercial: false
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Self-hosted open source · you run it yourself
+  confidence: medium
   source:
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -52,9 +57,9 @@ tags:
   - Containers
   - Zero Downtime
   - Rolling Deploys
-  - Rail
+  - Rails
   - Ruby
-  - Open-Source
+  - Open Source
   - 37signals
   - Basecamp
   - On-Premises
@@ -77,6 +82,7 @@ tags_raw:
   - Infrastructure
   - CLI
   - SSH
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/kamal-deploy/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'
@@ -101,7 +107,7 @@ apis:
       - CLI
       - Deployment
       - Docker
-      - Rail
+      - Rails
       - Ruby
       - SSH
     tags_raw:
