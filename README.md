@@ -1,4 +1,4 @@
-# kamal-deploy
+# Kamal
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,4 +64,88 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kamal — 37signals' open-source zero-downtime Docker deployer for any web app, paired with kamal-proxy for traffic switching. CLI tool only; no public REST API.
+Kamal is an open-source deployment tool from 37signals (DHH / Basecamp) for deploying containerized web applications to any infrastructure — bare metal, cloud VMs, or a mix — with zero-downtime rolling restarts. Originally built for Rails apps, Kamal works with any web application that can be packaged as a Docker container. It uses SSHKit to drive remote commands over SSH and pairs with kamal-proxy, a lightweight HTTP proxy written in Go that seamlessly switches request traffic between old and new containers during a deploy. Kamal is imperative and Capistrano-like in feel, with a single `config/deploy.yml` describing servers, image, registry, accessories, env, secrets, and proxy/SSL settings. Capabilities include auto-provisioning Docker on new servers, remote builds, asset bridging, accessory services (databases, Redis, cron sidecars), automatic TLS via Let's Encrypt, host- and path-based routing, and hooks for custom pre/post-deploy logic. Kamal is the operational backbone of 37signals' on-premises exit from major cloud providers and powers their ONCE product line. Kamal itself is a CLI tool, not a hosted service — there is no public REST API, no SDK, and no paid tier. The project is released under the MIT License and developed openly on GitHub under the `basecamp` organization.
+
+**Areas:** Deployment · DevOps · Docker · Containers · Zero Downtime · Rolling Deploys · Rails · Ruby · Open Source · 37signals · Basecamp · On-Premises
+
+## Kamal on APIs.io
+
+Everything profiled for Kamal is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kamal-deploy/](https://apis.io/providers/kamal-deploy/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Kamal CLI](https://apis.io/apis/kamal-deploy/kamal/) — The Kamal CLI (`kamal`) is the primary command-line interface for packaging, shipping, and operating containerized web apps across one or more SSH-reachable…
+- [Kamal Proxy](https://apis.io/apis/kamal-deploy/kamal-proxy/) — Kamal Proxy is a minimal HTTP reverse proxy written in Go that powers the zero-downtime deploy switchover behind Kamal. It exposes a small `kamal-proxy` CLI…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kamal Deploy Domain Security](https://apis.io/security/kamal-deploy/kamal-deploy-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://kamal-deploy.org)
+- [Documentation](https://kamal-deploy.org/docs/)
+- [Getting started](https://kamal-deploy.org/docs/installation/)
+- [Changelog](https://github.com/basecamp/kamal/releases)
+- [GitHub](https://github.com/basecamp)
+
+## API Evangelist rating
+
+**Kin Score 19.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kamal-deploy/](https://apis.io/providers/kamal-deploy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kamal: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kamal-deploy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
